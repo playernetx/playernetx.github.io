@@ -22,10 +22,59 @@
             background-position: center;
             z-index: -1; /* To place the image behind other content */
         }
+        .login-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        .login-input {
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 200px;
+            border: none;
+            border-bottom: 1px solid #ccc;
+            outline: none;
+            font-size: 16px;
+        }
+        .login-button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+        .login-button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
     <div id="full-screen-image"></div>
-    <!-- Your content goes here -->
+    <div class="login-container" id="loginContainer" style="display: none;">
+        <h2>Login</h2>
+        <input type="text" class="login-input" placeholder="Username">
+        <br>
+        <input type="password" class="login-input" placeholder="Password">
+        <br>
+        <button class="login-button">Log In</button>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.addEventListener('click', function() {
+                document.getElementById('loginContainer').style.display = 'block';
+            });
+        });
+    </script>
 </body>
 </html>
+
