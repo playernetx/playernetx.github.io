@@ -1,39 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Roblox Profile</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full Screen Image</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        #full-screen-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('your-image-file.jpg'); /* Replace 'your-image-file.jpg' with the name of your image file */
+            background-size: cover;
+            background-position: center;
+            z-index: -1; /* To place the image behind other content */
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo">
-      <img src="roblox_logo.png" alt="Roblox Logo">
-    </div>
-    <nav>
-      <ul>
-        <li><a href="#">discover</a></li>
-        <li><a href="#">create</a></li>
-        <li><a href="#">marketplace</a></li>
-        <li><a href="#">robux</a></li>
-        <!-- Add more menu items as needed -->
-      </ul>
-    </nav>
-    <div class="auth">
-      <a href="#">Sign In</a>
-      <a href="#">Sign Up</a>
-    </div>
-  </header>
-  <main>
-    <section class="profile">
-      <div class="profile-pic">
-        <img src="profile_picture.jpg" alt="Profile Picture">
-      </div>
-      <h1 class="username">JohnDoe</h1>
-    </section>
-    <!-- Add more profile sections as needed -->
-  </main>
+    <div id="full-screen-image"></div>
+    <!-- Your content goes here -->
 </body>
 </html>
-
