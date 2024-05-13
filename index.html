@@ -78,11 +78,11 @@
     <script>
         // Initialize Firebase
         const firebaseConfig = {
-            apiKey: "AIzaSyCBPo7550ENjv92kQKVtoBniWVSXBqoNC0",
+            apiKey: "YOUR_API_KEY",
             authDomain: "YOUR_AUTH_DOMAIN",
-            projectId: "playernetx",
-            storageBucket: "gs://playernetx.appspot.com",
-            messagingSenderId: "205889745208",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_STORAGE_BUCKET",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
             appId: "YOUR_APP_ID",
             measurementId: "YOUR_MEASUREMENT_ID"
         };
@@ -119,7 +119,9 @@
             });
         }
 
+        // Event listener to display the login container when the DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
+            // Display login container when the body is clicked
             document.body.addEventListener('click', function() {
                 document.getElementById('loginContainer').style.display = 'block';
             });
